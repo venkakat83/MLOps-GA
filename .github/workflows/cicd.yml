@@ -10,16 +10,16 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Activate Conda environment
-        run: |
-          source ~/miniconda3/etc/profile.d/conda.sh
-          conda activate poc
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.8"
 
       - name: Install dependencies (if needed)
         run: |
